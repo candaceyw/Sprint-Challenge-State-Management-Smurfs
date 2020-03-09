@@ -1,16 +1,36 @@
-import React, { Component } from "react";
+import React, { Fragment, useEffect } from 'react';
 import "./App.css";
-class App extends Component {
-  render() {
+
+import Smurfs from './smurfs/Smurfs'
+import SearchBar from './layout/SearchBar'
+import AddSmurfModal from './smurfs/AddSmurfModal'
+import AddBtn from './layout/AddBtn';
+import EditSmurfModal from './smurfs/EditSmurfModal'
+
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
+
+const App = () => {
+  useEffect(() => {
+    // Init Materialize JS
+    M.AutoInit();
+  });
+   
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
+
+      <Fragment>
+        {/* <SearchBar /> */}
+        <div className='container'>
+
+        <Smurfs />
+        <AddSmurfModal />
+        <EditSmurfModal />
+        </div>
+        <AddBtn />
+
+      </Fragment>
     );
   }
-}
+
 
 export default App;
